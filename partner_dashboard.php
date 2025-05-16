@@ -303,8 +303,6 @@ $result = mysqli_query($connection, $query);
     </div>
   <?php
   
-
-
   ?>
 
    
@@ -446,6 +444,12 @@ $result = $connection->query($sql);// exqute query
          elseif($status=="Approved"){
            $status_name="Approved";
          }
+        if (isset($_POST['choose']) && $_POST['choose'] != 'me' && ($status == "Pending" || $status == "Rejected")) {
+          continue;
+}
+
+         
+
 
 ?>
 <tr class="text-center">
@@ -606,17 +610,8 @@ if($status_name != "Approved") {
     </div>
   </td>
   
-  <!-- <td><?php echo $status_name ?></td> -->
-  <td>
-      <?php 
-        if($status_name=="Approved"){
-          echo $status_name ;
-        }
-       
-
-
-     ?>
-  </td>
+  <td><?php echo $status_name ?></td>
+  
 <td>
     <?php
       if($user_id==$_SESSION['user_id']){
