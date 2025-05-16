@@ -1,0 +1,211 @@
+ /* Add your CSS styles here */
+ .sidebar {
+    background-color: #0148B7;
+    
+   
+    
+    min-height: 100vh;
+  }
+  
+  .nav-link {
+    color: white;
+    margin-bottom: 5px;
+  }
+  
+  .nav-link.active {
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    border-radius: 5px;
+  }
+  
+  .stat-card {
+    border-radius: 10px;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .content-section {
+    display: none;
+  }
+  
+  .content-section.active {
+    display: block;
+  }
+  
+  .round-circle {
+    border-radius: 50%;
+  }
+  
+  /* Email CSS */
+  .email-wrapper {
+    font-family: 'Arial', sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    color: #333333;
+  }
+  
+  .email-header {
+    background: #0148B7;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .header-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+  }
+  
+  .company-logo {
+    height: 60px;
+    margin-bottom: 15px;
+  }
+  
+  .header-title {
+    margin: 0;
+    font-size: 24px;
+    position: relative;
+  }
+  
+  .header-subtitle {
+    margin: 5px 0 0;
+    font-size: 16px;
+    opacity: 0.9;
+  }
+  
+  .email-content {
+    padding: 30px;
+  }
+  
+  .welcome-message {
+    margin-bottom: 25px;
+    line-height: 1.6;
+  }
+  
+  .credentials-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid #e9ecef;
+  }
+  
+  .credential-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .credential-row:last-child {
+    border-bottom: none;
+  }
+  
+  .credential-label {
+    font-weight: bold;
+    color: #495057;
+  }
+  
+  .credential-value {
+    color: #212529;
+  }
+  
+  .password-value {
+    font-family: monospace;
+    font-size: 18px;
+    letter-spacing: 1px;
+    /* color: #0148B7; */
+    font-weight: bold;
+  }
+  
+  .cta-container {
+    text-align: center;
+    margin: 25px 0;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background: #0148B7;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background: #013a9b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(1, 72, 183, 0.2);
+  }
+  
+  .info-section {
+    background: #f1f8ff;
+    border-left: 4px solid #0148B7;
+    padding: 15px;
+    margin: 25px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  .info-title {
+    margin-top: 0;
+    /* color: #0148B7; */
+    color: white;
+    font-size: 18px;
+  }
+  
+  .info-content {
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  
+  .info-link {
+    color: #0148B7;
+    text-decoration: none;
+  }
+  
+  .email-footer {
+    text-align: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  
+  .footer-logo {
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-text {
+    margin: 5px 0;
+    color: #6c757d;
+    font-size: 14px;
+  }
+  
+  .footer-link {
+    /* color: #0148B7; */
+    text-decoration: none;
+  }
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;        /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  max-width: 380px;             /* Optional: controls width */
+  cursor: pointer;
+}
+    
+   

@@ -1,0 +1,242 @@
+
+        /* Base Styles */
+        body, p, h1, h2, h3 {
+            margin: 0;
+            padding: 0;
+            font-family: \'Poppins\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background-color: #f7fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Email Container */
+        .email-wrapper {
+            max-width: 640px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+        }
+        
+        /* Header Section */
+        .email-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 48px 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-pattern {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            /* background: url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="white"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="white"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="white"></path></svg>\'); */
+     
+
+            background-size: cover;
+        }
+        
+        .company-logo {
+            height: 48px;
+            width: auto;
+            margin-bottom: 24px;
+        }
+        
+        .header-title {
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 12px;
+            line-height: 1.2;
+        }
+        
+        .header-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            font-weight: 400;
+            margin: 0;
+        }
+        
+        /* Content Section */
+        .email-content {
+            padding: 40px;
+        }
+        
+        .welcome-message {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+        
+        /* Credentials Card */
+        .credentials-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .credential-row {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+        
+        .credential-row:last-child {
+            border-bottom: none;
+        }
+        
+        .credential-label {
+            font-weight: 600;
+            color: #4a5568;
+            width: 160px;
+            flex-shrink: 0;
+        }
+        
+        .credential-value {
+            color: #2d3748;
+            font-weight: 500;
+        }
+        
+        .password-value {
+            font-family: \'SF Mono\', \'Roboto Mono\', monospace;
+            letter-spacing: 1px;
+            background-color: #edf2f7;
+            padding: 6px 10px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        
+        /* CTA Button */
+        .cta-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 6px -1px rgba(102, 126, 234, 0.3), 0 2px 4px -1px rgba(102, 126, 234, 0.2);
+            transition: all 0.2s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(102, 126, 234, 0.3), 0 4px 6px -2px rgba(102, 126, 234, 0.2);
+        }
+        
+        /* Info Section */
+        .info-section {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            border-radius: 0 8px 8px 0;
+            padding: 24px;
+            margin: 40px 0;
+        }
+        
+        .info-title {
+            color: #2f855a;
+            font-weight: 700;
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        
+        .info-content {
+            color: #276749;
+            margin: 0;
+            line-height: 1.7;
+        }
+        
+        .info-link {
+            color: #2f855a;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        /* Footer */
+        .email-footer {
+            padding: 32px;
+            background: #f8fafc;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+        
+        .footer-logo {
+            height: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .footer-text {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .footer-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+       /* //responsive// */
+        @media screen and (max-width: 600px) {
+            .email-header {
+                padding: 40px 24px;
+            }
+            
+            .email-content {
+                padding: 32px 24px;
+            }
+            
+            .header-title {
+                font-size: 28px;
+            }
+            
+            .header-subtitle {
+                font-size: 16px;
+            }
+            
+            .credential-label {
+                width: 120px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .email-header {
+                padding: 32px 20px;
+            }
+            
+            .header-title {
+                font-size: 24px;
+            }
+            
+            .credential-row {
+                flex-direction: column;
+                gap: 4px;
+                padding: 16px 0;
+            }
+            
+            .credential-label {
+                width: 100%;
+            }
+            
+            .cta-button {
+                padding: 14px 32px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }

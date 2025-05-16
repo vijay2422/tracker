@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    font-family: "Poppins", sans-serif !important;
+    /* background: #E2FCF4 !important; */
+      /* background: #ACC8E5 !important; */
+      background-image: url('../img/img4.jpg');
+
+    margin-left: 6% !important;
+}
+label{
+   
+    font-family: "Poppins", sans-serif !important;
+}
+
+label{
+    /* background: red !important; */
+    /* border-radius: 15px; */
+    font-family: "Poppins",sans-serif !important;
+    font-size: 20px !important;
+}
+input{
+    /* background: red !important; */
+    border-radius: 15px !important;
+    padding: 14px! important;
+}
+.card {
+    border-radius: 1.5rem !important;
+    background: #70BB56!important;
+}
+.card-header{
+    background: green !important;
+    border-radius: 1.5rem !important;
+}
+.card-body{
+    padding: 8rem 2rem !important;
+    /* background: red; */
+    border-radius: 20% !important;
+}
+
+.btn-success {
+    background-color: green !important;
+    padding: 14px 28px !important;
+    border-radius: 50px !important;
+    margin-right: -12% !important;  
+    font-size: 20px !important;
+    color: #fff !important;
+    border: none !important;
+    transition: background-color 0.3s ease;
+    border-radius: none;
+}
+
+.btn-success:hover {
+    background-color:#03484F !important;
+    color: black !important;
+}
+
+a{
+    /* background: red; */
+    /* margin-top: 12px !important ;
+    margin-left: 48%; */
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    text-decoration: none !important;
+    font-size: 15px;
+    color: white !important;
+    
+}
