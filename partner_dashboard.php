@@ -144,6 +144,7 @@ $result = mysqli_query($connection, $query);
 
 ?>
 
+
 <!-- Add Partener Session  End -->
 
 <!DOCTYPE html>
@@ -160,9 +161,7 @@ $result = mysqli_query($connection, $query);
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="script.js"></script>
-  
-  
- 
+
 </head>
 <body>
   <div class="container-fluid">
@@ -171,9 +170,9 @@ $result = mysqli_query($connection, $query);
       <nav class="col-md-2 d-none d-md-block sidebar p-3">
         <h4 class="text-white"> Partner Panel</h4>
         <ul class="nav flex-column mt-4">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link active" style="color:white;" href="#" onclick="showSection('dashboard')"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="#" style="color:white;" onclick="showSection('expense')"><i class="bi bi-cash-coin me-2"></i> Partner Expenses</a>
           </li>
@@ -184,7 +183,7 @@ $result = mysqli_query($connection, $query);
       <!-- Main Content -->
       <main class="col-md-10 ms-sm-auto px-md-4 py-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
-          <h2 id="section-title">Tidy  Dashboard</h2>
+          <h2 id="section-title">Tidy Partner</h2>
           <div class="dropdown">
             <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
               <img src="img/img.jpg" alt="" class="round-circle" style="width: 20px; height: 20px;">
@@ -200,14 +199,14 @@ $result = mysqli_query($connection, $query);
 
         <!-- Dashboard Section -->
         <!-- <div id="dashboard" class="content-section active"> -->
-            <div id="dashboard" class="content-section active">
+            <div id="dashboard" class="content-section ">
           
         </div>
         
         <!-- Expense Section -->
-        <div id="expense" class="content-section">
+        <div id="expense" class="content-section active">
         
-
+ 
           <div class="container-fluid p-5">
         <div class="row">
             <div class="col-12">
@@ -240,22 +239,19 @@ $result = mysqli_query($connection, $query);
     </div>
   </div>
 
-
   <div class="col-md-3">
-   
     <input type="month" id="month" name="month" class="form-control">
   </div>
 
- 
   <div class="col-md-1">
-    <button type="submit" id="search" name="search" style="
-    margin-left: -24%"; class="btn btn-primary w-10" >
-      <i class="fas fa-search"></i> 
-    </button>
+    <button type="submit" id="search" name="search" style="margin-left: -24%"; class="btn btn-primary w-10" ><i class="fas fa-search"></i> </button>
   </div>
-</button>
+<!-- </button> -->
 </div>
 </form>
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -285,7 +281,7 @@ $result = mysqli_query($connection, $query);
   </div>
 
 
-<div class="mb-3">
+<!-- <div class="mb-3">
    
  
   <label for="category">Category <span  style="color:red;">*</span> </label>
@@ -301,13 +297,51 @@ $result = mysqli_query($connection, $query);
       <label for="other_description">Others Category <span  style="color:red;">*</span></label>
       <textarea name="others_description" id="other_description" class="form-control" placeholder="Enter Category.." style="resize: none;"></textarea>
     </div>
-  <?php
   
-  ?>
 
-   
+</div> -->
 
+<div class="mb-3">
+  <label for="category">Category <span style="color:red;">*</span></label>
+  <select id="category" name="category" class="form-control" onchange="toggleDescriptions()" required>
+    <option value="">--Select--</option>
+    <option value="food">Food</option>
+    <option value="travel">Travel</option>
+    <option value="office_supplies">Office Supplies</option>
+    <option value="others">Others</option>
+  </select>
+
+  <div id="other-description" style="display:none; margin-top: 10px;">
+    <label for="other_description">Others Category <span style="color:red;">*</span></label>
+    <textarea name="others_description" id="other_description" class="form-control" placeholder="Enter Category.." style="resize: none;"></textarea>
+  </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#category').change(function () {
+      if ($(this).val() === 'others') {
+        $('#other-description').show();
+      } else {
+        $('#other-description').hide();
+      }
+    });
+
+    // On form submit or before send, append textarea value to category
+    $('form').on('submit', function () {
+      if ($('#category').val() === 'others') {
+        const otherText = $('#other_description').val().trim();
+        if (otherText !== '') {
+          // Set combined value like "others - your input"
+          $('#category').append(`<option value="others - ${otherText}" selected></option>`);
+        }
+      }
+    });
+  });
+</script>
+
+
+
   <div class="mb-3">
     <label for="description" class="form-label">Description</label>
 
@@ -361,7 +395,9 @@ $result = mysqli_query($connection, $query);
 
 if ($connection->connect_error) {
     die("Connection Failed: " . $connection->connect_error);
+
 }
+
 $user_id = $_SESSION['user_id'] ?? null;
 
 // $sql = "SELECT * FROM expense_entry  WHERE user_id={$_SESSION['user_id']} And SELECT users.*,users.username FROM users ";
@@ -374,15 +410,24 @@ $sql = "SELECT expense_entry.*, users.username FROM expense_entry JOIN users ON 
 
 //Filtering in choose .. Option// 
 
+
+
 if(isset($_POST['search'])){
+    $choose = $_POST['choose'];
+    $month = trim($_POST['month']);
+    $userId = $_SESSION['user_id'];
+    $sql = "";
+ 
   if($_POST['choose']=='me'){
     // $sql = "SELECT * FROM expense_entry  WHERE user_id={$_SESSION['user_id']}";
     // $sql = "SELECT expense_entry.*, admin.name ,admin.email FROM expense_entry JOIN users ON expense_entry.user_id = users.id 
     //         WHERE expense_entry.user_id = {$_SESSION['user_id']}";
-    // $sql = "SELECT expense_entry.*, users.username, users.email FROM expense_entry JOIN users ON expense_entry.user_id = users.id WHERE expense_entry.user_id = {$_SESSION['user_id']}
+
+
+    $sql = "SELECT expense_entry.*, users.username, users.email FROM expense_entry JOIN users ON expense_entry.user_id = users.id WHERE expense_entry.user_id = {$_SESSION['user_id']}  ORDER BY expense_entry.id DESC";
     //  ORDER BY expense_entry.id DESC";
-      $sql .= " LIMIT $startAt, $perPage";
-    $result = $connection->query($sql);
+    //   $sql .= " LIMIT $startAt, $perPage";
+    // $result = $connection->query($sql);
 
 
   }
@@ -412,10 +457,8 @@ if(isset($_POST['search'])){
   }
  
 }
-$result = $connection->query($sql);// exqute query
+$result = $connection->query($sql);
 
-// if ($result->num_rows > 0) {
-  // if(mysqli_num_rows($result)> 0) {
   if ($result && mysqli_num_rows($result) > 0){
    
     $id=1;
@@ -445,13 +488,11 @@ $result = $connection->query($sql);// exqute query
            $status_name="Approved";
          }
         if (isset($_POST['choose']) && $_POST['choose'] != 'me' && ($status == "Pending" || $status == "Rejected")) {
-          continue;
+        continue;
 }
 
-         
-
-
 ?>
+
 <tr class="text-center">
 
   <td><?php echo $id?></td>
@@ -462,7 +503,13 @@ $result = $connection->query($sql);// exqute query
   <td><?php echo $formattedDate ?></td>
   <td><?php echo $category ?></td>
   <td><?php echo $partner_invoice_number ?></td>
-  <td class="description" title="<?php echo $description; ?>"><?php echo $description; ?></td>
+  <?php 
+  if ($description == '') {
+    $description = "-";
+  }
+?>
+<td class="description" title="<?php echo $description; ?>"><?php echo $description; ?></td>
+
 
   <td>
     <!-- Button trigger modal -->
@@ -633,7 +680,9 @@ if($status_name != "Approved") {
     echo "<tr><td colspan='9' class='text-center'>No records found.</td></tr>";
 }
 ?>
-  </tbody>
+
+</tbody>
+
 </table>
 </div>
 
@@ -684,6 +733,7 @@ if($status_name != "Approved") {
         </div>
 
   <script>
+
     function showSection(sectionId) {
       // Hide all content sections
       const sections = document.querySelectorAll(".content-section");

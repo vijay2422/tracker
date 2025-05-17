@@ -538,13 +538,13 @@ if (!$result) {
         <h4 class="text-white">Admin Panel</h4>
         <ul class="nav flex-column mt-4">
           <li class="nav-item">
-            <a class="nav-link active" href="#" onclick="showSection('dashboard')"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
+            <a class="nav-link " href="#" onclick="showSection('dashboard')"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" onclick="showSection('expense')"><i class="bi bi-cash-coin me-2"></i> My Expenses</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" onclick="showSection('users')"><i class="bi bi-people me-2"></i> Partners</a>
+            <a class="nav-link active" href="#" onclick="showSection('users')"><i class="bi bi-people me-2"></i> Partners</a>
           </li>
          
         </ul> 

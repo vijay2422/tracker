@@ -13,6 +13,7 @@
 <body>
   <div class="voucher">
     <div class="voucher-header">
+      <h1> Tidyds Digital Soluction</h1>
       <h1>Expense Voucher</h1>
       <p>Voucher No: <strong><?= htmlspecialchars($voucherId) ?></strong></p>
     </div>
